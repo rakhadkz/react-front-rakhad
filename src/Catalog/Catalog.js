@@ -14,7 +14,7 @@ import axios from "axios";
 import "../App.css";
 
 const URL = 'http://localhost:';
-const PORT = process.env.REACT_APP_PORT || 3015;
+const PORT = process.env.REACT_APP_PORT || 3000;
 const BASIC_URL = URL + PORT;
 
 
