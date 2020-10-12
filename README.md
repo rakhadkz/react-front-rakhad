@@ -13,7 +13,7 @@ cd react-frontend-rakhad
 ### Configure .env  file ( if the backend port has been changed )
 The backend runs on port ```3015```. If the port has been changed in use, set another port instead. It requires to create ```.env``` file and set your port number as shown below
 ```
-PORT = 1234
+REACT_APP_PORT = 1234
 ```
 ### Installing all dependencies
 ```
