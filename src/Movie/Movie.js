@@ -1,13 +1,16 @@
-import React, { Component, useEffect, useState } from "react";
+import React, { useEffect, useState } from "react";
 import { Button, Modal, Container, Form, ListGroup } from "react-bootstrap";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faTrash } from "@fortawesome/free-solid-svg-icons";
-import axios from "axios";
 import "../App.css";
 
-const URL = 'http://localhost:';
-const PORT = process.env.REACT_APP_PORT || 3000;
-const BASIC_URL = URL + PORT;
+import {
+    getMovieCatalog, 
+    removeMovie, 
+    createMovie, 
+    getMovies
+} 
+from  '../services/movie'
 
 export default function Movie(props) {
   const { history } = props;
@@ -22,14 +25,13 @@ export default function Movie(props) {
 
   const id = props.match.params.catalog_id;
   const fetchMovies = () => {
-    axios.get(BASIC_URL + "/movie/" + id).then((res) => {
+    getMovies(id).then((res) => {
       setMovies(res.data.data);
     });
   };
 
   const catalogTitle = () => {
-    axios
-      .get(BASIC_URL + "/catalog/" + id)
+    getMovieCatalog(id)
       .then((res) => {
         setTitle(res.data.data.title);
       })
@@ -67,7 +69,7 @@ const MovieList = (props) => {
 
   const deleteMovie = (id, e) => {
     e.preventDefault();
-    axios.delete(BASIC_URL + "/movie/" + id).then((res) => {
+    removeMovie(id).then((res) => {
       console.log(res.data);
       props.fetchMovies();
     });
@@ -105,8 +107,7 @@ const ShowModal = (props) => {
   };
 
   const handleCreate = () => {
-    axios
-      .post(BASIC_URL + "/movie", { name: name, catalog_id: id })
+    createMovie({ name: name, catalog_id: id })
       .then((res) => {
         console.log(res.data);
         props.setShow(false);

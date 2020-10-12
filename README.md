@@ -7,8 +7,8 @@ This is a simple application to render a catalog list in React. It was built as 
 ### Clone the repository
 
 ```bash
-git clone https://github.com/rakhadkz/react-frontend-rakhad.git
-cd react-frontend-rakhad
+git clone https://github.com/rakhadkz/react-front-rakhad.git
+cd react-front-rakhad
 ```
 ### Configure .env  file ( if the backend port has been changed )
 The backend runs on port ```3000```. If the port has been changed, set another port instead. It requires to create ```.env``` file and set your port number as shown below

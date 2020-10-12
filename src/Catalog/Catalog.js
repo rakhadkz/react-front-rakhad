@@ -10,21 +10,21 @@ import {
 } from "react-bootstrap";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faPlus, faTrash } from "@fortawesome/free-solid-svg-icons";
-import axios from "axios";
 import "../App.css";
-
-const URL = 'http://localhost:';
-const PORT = process.env.REACT_APP_PORT || 3000;
-const BASIC_URL = URL + PORT;
-
+import {
+    getCatalogs, removeCatalog, createCatalog
+} from '../services/catalog'
 
 export default function Catalog() {
   const [catalogs, setCatalogs] = useState([]);
 
   const fetchCatalogs = () => {
-    axios.get(BASIC_URL + "/catalog").then((res) => {
+    getCatalogs().then((res) => {
       setCatalogs(res.data.data);
     });
+    
+
+
   };
 
   useEffect(() => {
@@ -59,7 +59,7 @@ function CatalogList(props) {
 
   const deleteCatalog = (id, e) => {
     e.preventDefault();
-    axios.delete(BASIC_URL + "/catalog/" + id).then((res) => {
+    removeCatalog(id).then((res) => {
       console.log(res.data);
       props.fetchCatalogs();
     });
@@ -96,7 +96,7 @@ function ModalCreate(props) {
   };
 
   const handleCreate = () => {
-    axios.post(BASIC_URL + "/catalog", { title: title }).then((res) => {
+    createCatalog({title: title}).then((res) => {
       console.log(res);
       console.log(res.data);
       setShow(false);
