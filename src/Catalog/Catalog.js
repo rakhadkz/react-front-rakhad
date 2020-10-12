@@ -13,7 +13,10 @@ import { faPlus, faTrash } from "@fortawesome/free-solid-svg-icons";
 import axios from "axios";
 import "../App.css";
 
-const BASIC_URL = process.env.REACT_APP_BASIC_URL;
+const URL = 'http://localhost:';
+const PORT = process.env.REACT_APP_PORT || 3015;
+const BASIC_URL = URL + PORT;
+
 
 export default function Catalog() {
   const [catalogs, setCatalogs] = useState([]);
