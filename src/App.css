@@ -13,6 +13,60 @@
   }
 }
 
+.fixed {
+    position: fixed;
+    bottom: 50px;
+    right: 30px; 
+}
+
+@media screen and (min-width: 150px) {
+  .fixed {
+    position: fixed;
+    bottom: 50px;
+    right: 30px; 
+  }
+}
+
+@media screen and (min-width: 1000px) {
+  .fixed {
+    position: fixed;
+    bottom: 50px;
+    right: 200px; 
+  }
+}
+
+.dotted{
+  border-style: dotted;
+}
+
+.clickable{
+  cursor: pointer;
+}
+
+.right{
+  float: right;
+}
+
+.trash{
+  color: #d32f2f;
+}
+
+.btn-circle {
+  width: 30px;
+  height: 30px;
+  text-align: center;
+  font-size: 15px;
+  line-height: 1.428571429;
+  border-radius: 15px;
+}
+.btn-circle.btn-lg {
+  width: 50px;
+  height: 50px;
+  padding: 10px 10px;
+  font-size: 17px;
+  border-radius: 25px;
+}
+
 .App-header {
   background-color: #282c34;
   min-height: 100vh;

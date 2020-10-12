@@ -1,17 +1,20 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
 import './index.css';
-import App from './App';
-import * as serviceWorker from './serviceWorker';
+import Catalog from './Catalog/Catalog';
+import Movie from './Movie/Movie';
+import { BrowserRouter, Route, Switch } from 'react-router-dom';
+import NotFoundItem from './NotFound'
 
 ReactDOM.render(
   <React.StrictMode>
-    <App />
+    <BrowserRouter>
+    <Switch>
+      <Route exact path='/catalogs/:catalog_id' render={(props) => <Movie {...props}/>}></Route>
+      <Route exact path={['/catalogs', '/', '/catalog']} component={Catalog}></Route>
+      <Route path='/*' component={NotFoundItem}/>
+    </Switch>
+    </BrowserRouter>
   </React.StrictMode>,
   document.getElementById('root')
 );
-
-// If you want your app to work offline and load faster, you can change
-// unregister() to register() below. Note this comes with some pitfalls.
-// Learn more about service workers: https://bit.ly/CRA-PWA
-serviceWorker.unregister();
