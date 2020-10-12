@@ -11,7 +11,7 @@ git clone https://github.com/rakhadkz/react-frontend-rakhad.git
 cd react-frontend-rakhad
 ```
 ### Configure .env  file ( if the backend port has been changed )
-The backend runs on port ```3015```. If the port has been changed, set another port instead. It requires to create ```.env``` file and set your port number as shown below
+The backend runs on port ```3000```. If the port has been changed, set another port instead. It requires to create ```.env``` file and set your port number as shown below
 ```
 REACT_APP_PORT = 1234
 ```
@@ -24,4 +24,4 @@ npm install
 ```ruby
 npm start
 ```
-The app runs on [http://localhost:3000](http://localhost:3000)
+The app runs on [http://localhost:3015](http://localhost:3015)
