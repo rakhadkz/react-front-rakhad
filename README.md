@@ -1,8 +1,8 @@
-# README
+# The React app
 
 This is a simple application to render a catalog list in React. It was built as a project for the assignment. You are able to create / delete a new catalogue and movie
 
-## Installation
+## Getting started
 
 ### Clone the repository
 
